@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<!--            affichage = (1)-->
+    <form th:action="@{/calculatrice/calcul}" method="post" th:object="${calculatrice}">
+
+        <div>
+            <label>Chiffre 1 : </label>
+            <input type="number" th:field="*{nb1}">
+        </div>
+
+        <div>
+            <label>Chiffre 2 : </label>
+            <input type="number" th:field="*{nb2}">
+        </div>
+
+        <div>
+            <label>opérande : </label>
+            <input type="text" th:field="*{operande}">
+        </div>
+
+        <button type="submit">envoyer</button>
+
+<!--                /* (2) */-->
+
+    </form>
+</body>
+</html>

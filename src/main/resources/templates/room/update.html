@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+  <form th:action="@{/room/update/{num}(num=${room.numRoom})}" method="post"  th:object=""${room}>
+
+    <div>
+      <label for="in-num">numéro : </label><br/>
+      <input type="number" id="in-num" th:field="*{numRoom}">
+    </div>
+
+    <div>
+      <label for="in-bed-simple">nombre de lits simples : </label><br/>
+      <input type="number" id="in-bed-simple" th:field="*{nbSimpleBed}">
+    </div>
+
+    <div>
+      <label for="in-bed-double">Nombre de lits doubles : </label><br/>
+      <input type="number" id="in-bed-double" th:field="*{nbDoubleBed}">
+    </div>
+
+    <div>
+      <label for="in-size">taille : </label><br/>
+      <input type="number" id="in-size" th:field="*{size}">
+    </div>
+
+    <button type="submit">envoyer</button>
+
+
+  </form>
+
+</body>
+</html>

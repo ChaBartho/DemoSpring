@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Random</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <ul>
+        <li th:each="mot : ${mots}"
+            th:text="${mots}"
+
+        >
+
+        </li>
+
+    </ul>
+</body>
+</html>

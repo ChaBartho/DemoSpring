@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma chambre</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+    <h1>Détails d'une chambre</h1>
+
+    <div th:object="${room}">
+        <p>numéro de la chambre: <span th:text="*{numRoom}">1</span></p>
+        <p>nombre de lits simples: <span th:text="*{nbSimpleBed}">1</span></p>
+        <p>nombre de lits doubles: <span th:text="*{nbDoubleBed}">1</span></p>
+        <p>taille en m² : <span th:text="*{size}" th:class="*{size} > 20 ? 'red'">20</span></p>
+        <!--    la taille s'écrit en rouge si la taille > 20 (class ="red") -->
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>

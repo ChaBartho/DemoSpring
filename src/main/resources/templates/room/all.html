@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Mes Chambres</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <h1>Liste des chambres</h1>
+    <ul>
+        <li th:each="room : ${rooms}" th:object="${room}">
+            <p th:text="|numéro: *{numRoom},
+                    lits simples: *{nbSimpleBed},
+                    lits doubles: *{nbDoubleBed} |">
+                            Données sur une chambre
+            </p>
+            <a th:href="@{/room/{num}(num=*{numRoom})}">
+                <button>détails</button>
+            </a>
+        </li>
+    </ul>
+
+
+
+    <!--exemple th-->
+
+<!--    <ul>-->
+<!--        <li-->
+<!--           th:each="personne : ${p}"-->
+<!--           th:text="|${personne.prenom} ${personne.nom}|"-->
+<!--           th:class="${#string.lenght( ${personne.nom} )} > 4 ? 'red' "   //-> j'affiche le nom en rouge qd il fait + de 4 caract-->
+<!--           th:if="${#string.lenght( ${personne.prenom} )} > 4"      //-> j'affiche le prénom qd il fait + de 4 caract-->
+<!--           -->
+<!--        ></li>-->
+<!--    </ul>-->
+
+
+
+</body>
+</html>

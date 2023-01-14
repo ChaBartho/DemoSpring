@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+  <h1>Liste de mes hotels</h1>
+  <ul>
+    <li th:each="hotel : ${hotels}" th:object="${hotel}">
+      <p th:text="|nom de l'hotel: *{nom},
+                      nombres de chambre: *{nbChambre},
+                      nom de la réceptionniste: *{nomReceptionniste},
+                      adresse: *{adresse},
+                      nombre d'étoiles: *{nbEtoile} |">
+      </p>
+      <a th:href="@{/hotel/{nom}(nom=*{nom})}">
+        <button>détails</button>
+      </a>
+    </li>
+  </ul>
+
+
+</body>
+</html>
