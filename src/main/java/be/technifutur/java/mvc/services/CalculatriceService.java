@@ -20,6 +20,7 @@ public class CalculatriceService {
             case "/" -> result = nb1 / nb2;
             case "*" -> result = nb1 * nb2;
             case "%" -> result = nb1 % nb2;
+            default -> System.out.println("Calcul impossible");
         }
         return result;
     }
