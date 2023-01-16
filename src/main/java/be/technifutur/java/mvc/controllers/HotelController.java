@@ -1,10 +1,14 @@
 package be.technifutur.java.mvc.controllers;
 import be.technifutur.java.mvc.models.Hotel;
+import be.technifutur.java.mvc.models.HotelForm;
 import be.technifutur.java.mvc.services.HotelService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
 import java.util.List;
 @Controller
 public class HotelController {
@@ -35,6 +39,22 @@ public class HotelController {
         model.addAttribute("hotel", hotelService.getOne( nom ));
 
         return "hotel/one";
+    }
+
+
+
+
+    @GetMapping("/hotel/add")    // = CHEMIN vers ma DB PAS vers la vue
+    public String input (Model model){
+        model.addAttribute("hotel", new HotelForm());
+
+        return "hotel/hotelForm";   // = CHEMIN vers la VUE
+    }
+
+    @PostMapping("/hotel/add")  //DB
+    public String process (Model model, @Valid HotelForm hotelform){
+        hotelService.addHotel(hotelform);
+     return "redirect:/hotel/all";   // VUE
     }
 
 }

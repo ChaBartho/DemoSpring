@@ -1,6 +1,7 @@
 package be.technifutur.java.mvc.controllers;
 import be.technifutur.java.mvc.models.Calculatrice;
 import be.technifutur.java.mvc.services.CalculatriceService;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +19,13 @@ public class CalculatriceController {
 
 
     @GetMapping("/calculatrice/input") //= premiere étape, ce que voit l'utilisateur (1)
-    public String input(Model model){
+    public String input(Model model, Calculatrice calculatrice){
         model.addAttribute("calculatrice", new Calculatrice());
         return "/calculatrice/insert";
     }
 
     @PostMapping("/calculatrice/calcul")  //= l'action du formulaire = submit    (2)
-    public String calcul(Model model, Calculatrice calculatrice){
+    public String calcul(Model model, @Valid Calculatrice calculatrice){
         int result;
         result = calculatriceService.calcul(calculatrice);
 

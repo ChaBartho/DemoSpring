@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Hotel Form</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<!--                                    = postMapping-->
+  <form th:action="@{/hotel/add}" method="post" th:object="${hotel}">
+      <div>
+          <label>ID :</label></br>
+          <input type="number" th:field="*{id}">
+      </div>
+
+      <div>
+          <label>Nombre d'étoiles :</label></br>
+          <input type="number" th:field="*{nbEtoile}">
+      </div>
+
+      <div>
+          <label>Nom de la réceptionniste :</label></br>
+          <input type="text" th:field="*{nomReceptionniste}">
+      </div>
+
+      <div>
+          <label>nom de l'Hotel :</label></br>
+          <input type="text" th:field="*{nom}">
+      </div>
+
+      <div>
+          <label>Adresse de l'Hotel :</label></br>
+          <input type="text" th:field="*{adresse}">
+      </div>
+
+      </br>
+      <button type="submit">envoyer</button>
+  </form>
+
+</body>
+</html>

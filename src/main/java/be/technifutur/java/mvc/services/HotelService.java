@@ -1,5 +1,6 @@
 package be.technifutur.java.mvc.services;
 import be.technifutur.java.mvc.models.Hotel;
+import be.technifutur.java.mvc.models.HotelForm;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +13,10 @@ public class HotelService {
 
     //Constructeur:
     public HotelService(){
-        hotels.add(new Hotel(1,10,"Chantal","HotelSuper3000", "rue menfou",5));
-        hotels.add(new Hotel(2,10,"Mireille","HotelYassssQueen","rue menfou",4));
-        hotels.add(new Hotel(3,20,"Jacqueline","HotelDeLuxe","rue menfou",3));
-        hotels.add(new Hotel(4,31,"Marie-Odile","HotelDodoMaison","rue menfou", 1));
+        hotels.add(new Hotel(1,3,200,"Chantal","HotelSuper3000", "rue menfou"));
+        hotels.add(new Hotel(2,3,200, "Mireille","HotelYassssQueen","rue menfou"));
+        hotels.add(new Hotel(3,2,200, "Jacqueline","HotelDeLuxe","rue menfou"));
+        hotels.add(new Hotel(4,1,200, "Marie-Odile","HotelDodoMaison","rue menfou"));
     }
 
 
@@ -30,5 +31,9 @@ public class HotelService {
                 .filter(hotel -> hotel.getNom().equalsIgnoreCase(nom))  //hotels -> hotel pcq stream applique un filtre pour chaque hotel
                 .findFirst()
                 .orElseThrow( ()-> new RuntimeException("blabla"));
+    }
+
+    public void addHotel(HotelForm hotelForm){
+        hotels.add(new Hotel(hotelForm.getId(), hotelForm.getNbEtoile(), hotelForm.getNbChambre(), hotelForm.getNomReceptionniste(), hotelForm.getNom(), hotelForm.getAdresse()));
     }
 }
