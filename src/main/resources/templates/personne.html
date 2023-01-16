@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personne</title>
+</head>
+<body>
+
+  <ul>
+    <li
+            th:each="personne : ${p}"
+            th:text="|${personne.prenom} ${personne.nom}|"
+            th:class="${#strings.length( ${personne.nom} )} > 4 ? 'red'"
+            th:if="${#strings.length( ${personne.prenom} )} > 4"
+    >
+      <a th:href="@{/pers/{nom}(nom=${personne.nom}, prenom=${personne.prenom})}"></a>
+    </li>
+  </ul>
+  </br>
+  </br>
+  </br>
+  <form th:action="@{}" method="get" th:object="${personne}">
+
+      <div>
+          <label>Nom : </label>
+          <input type="text" th:field="*{nom}">
+      </div>
+
+      <div>
+          <label>Prénom : </label>
+          <input type="text" th:field="*{prenom}">
+      </div>
+
+      <div>
+          <label>Date de naissance : </label>
+          <input type="number" th:field="*{dateNaissance}">
+      </div>
+
+      <button type="submit">envoyer</button>
+
+</body>
+</html>
